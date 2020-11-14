@@ -13,15 +13,16 @@ ltximg
 auto
 *_region_.tex
 
-# build
+# build & cabal/haskell stuff
 _build
 _shake
 .stack-work
 stack.yaml.lock
+dist-newstyle
 
 # figs and derived stuff
 *.pdf
 *.png
 
 # derived data, etc
-dat
+public_html
