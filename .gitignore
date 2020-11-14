@@ -1,0 +1,27 @@
+# emacs
+*~
+
+# latex
+*.log
+*.aug
+*.out
+*.bbl
+*.blg
+*.aux
+*.synctex.gz
+ltximg
+auto
+*_region_.tex
+
+# build
+_build
+_shake
+.stack-work
+stack.yaml.lock
+
+# figs and derived stuff
+*.pdf
+*.png
+
+# derived data, etc
+dat

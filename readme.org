@@ -1,0 +1,27 @@
+* Required software
+  -  [[https://www.haskell.org/downloads/#minimal][Haskell GHC compiler and Cabal build tool]]
+
+* Build instructions
+** Windows (untested)
+
+   Clone this repository, enter directory, and run:
+
+   #+BEGIN_SRC bash
+     cabal new-run build
+   #+END_SRC
+
+** Linux instructions
+
+   Clone this repository, enter directory, and run:
+
+   #+BEGIN_SRC bash
+     cabal new-run build
+   #+END_SRC
+
+   or, with GNU Make:
+
+   #+BEGIN_SRC bash
+     make
+   #+END_SRC
+
+   This should also probably work on OSX, but I haven't tested it.

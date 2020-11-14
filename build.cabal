@@ -1,0 +1,39 @@
+cabal-version: 3.2
+
+name:           build
+version:        0.1.0.0
+author:         Adam Massmann
+maintainer:     akm2203@columbia.edu
+copyright:      Copyright (c) 2020 Adam Massmann
+license:        (BSD-3-Clause OR Apache-2.0)
+license-file:   LICENSE.org
+build-type:     Simple
+extra-source-files:
+    readme.org
+    Makefile
+
+-- my default is to not even think twice about incluidng anything in
+-- Haskell core, or packages that ship with GHC. See
+-- https://wiki.haskell.org/Core_Libraries_Committee for both the core
+-- libraries, and the libraries that aren't core but ship with GHC I
+-- also generally install local haddock data for these libraries.
+common build-dependencies
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , containers
+    , shake
+    , text
+    , vector
+    , time
+  default-language: Haskell2010
+
+
+executable build
+  import: build-dependencies
+  main-is: Shakefile.hs
+  -- -I0 turns off idle garbage collection, which would otherwise get
+  -- triggered too often when shake is waiting on external commands
+  -- (and then steal CPU cycles from said commands). O0 is to speed up
+  -- compilation times, but now sure if right or necessary
+  ghc-options: -rtsopts -threaded -with-rtsopts=-I0 -outputdir=_shake -O0
