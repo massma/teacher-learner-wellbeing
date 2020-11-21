@@ -33,7 +33,11 @@ websitePandoc input output
     inExt = takeExtension input
     outExt = takeExtension output
     cmd__ fromType =
-      need [input, "public_html" </> css, "Shakefile.hs"]
+      need
+        [ input,
+          "public_html" </> dropDirectory1 (takeDirectory output) </> css,
+          "Shakefile.hs"
+        ]
         >> cmd_
           "pandoc"
           [ "--standalone",
@@ -48,14 +52,21 @@ websitePandoc input output
             input
           ]
 
+htmlFromSource :: FilePath -> FilePath
+htmlFromSource = (-<.> ".html") . ("public_html" </>) . dropDirectory1
+
 main :: IO ()
 main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
-  action $ need (fmap ("public_html" </>) ["index.html"])
+  action $ do
+    inputs <-
+      fmap ("website-src" </>)
+        <$> getDirectoryFiles "website-src" ["//*.org", "//*.md", "//*.html"]
+    need (fmap htmlFromSource inputs)
 
-  "public_html/*.html" %> \out -> do
+  "public_html//*.html" %> \out -> do
     let possibleSources =
           fmap
-            (("website-src" </> takeFileName out) -<.>)
+            (("website-src" </> dropDirectory1 out) -<.>)
             ["html", "md", "org"]
     sources <-
       mapM (\x -> doesFileExist x >>= \bool -> return (bool, x)) possibleSources
@@ -65,8 +76,8 @@ main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
       _ : _ : (True, org) : _rest -> websitePandoc org out
       _ -> error ("No html, md, or org source file for: " <> out)
 
-  "public_html/*.css" %> \out -> do
-    let input = "website-src" </> takeFileName out
+  "public_html//*.css" %> \out -> do
+    let input = "website-src" </> css
     need [input]
     cmd_ "cp" [input, out]
 

@@ -1,13 +1,17 @@
 * Required software
   -  [[https://www.haskell.org/downloads/#minimal][Haskell GHC compiler and Cabal build tool]]
 
-* Build instructions
+
+* Instructions to build the website
+  After building, the website will be available in generated html
+  files in ~./public_html~.
+
 ** Windows (untested)
 
    Clone this repository, enter directory, and run:
 
    #+BEGIN_SRC bash
-     cabal new-run build
+     cabal run build
    #+END_SRC
 
 ** Linux instructions
@@ -15,7 +19,7 @@
    Clone this repository, enter directory, and run:
 
    #+BEGIN_SRC bash
-     cabal new-run build
+     cabal run build
    #+END_SRC
 
    or, with GNU Make:
@@ -25,3 +29,29 @@
    #+END_SRC
 
    This should also probably work on OSX, but I haven't tested it.
+
+* Contributing content
+  All content is generated from files in ~/website-src~. Edit or add
+  files here to update website content. The build system will
+  automatically generate a new website if you execute the command
+  ~cabal run build~.
+
+* Modifying the build system
+  The build system is based on [[https://shakebuild.com/][Shake]], and can be modified with the
+  ~Shakefile.hs~ file.
+
+* Licenses
+  All written content (~./public_html~ and ~./website_src~) is
+  provided under a CC BY license:
+
+@@html:<a rel="license"
+href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative
+Commons License" style="border-width:0"
+src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br
+/>All written content on this website is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+Attribution 4.0 International License</a>@@
+
+  All code (~Shakefile.hs~) is provided under either a BSD 3-clause
+  license or the Apache 2.0 License, at the user's discretion. See
+  ~LICENSE.org~.
