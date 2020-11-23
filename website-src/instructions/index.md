@@ -1,5 +1,5 @@
 ---
-title: Facilitators Instructions' for "Considering the Whole Self in Teaching and Learning"
+title: Facilitators' Instructions for "Considering the Whole Self in Teaching and Learning"
 ---
 
 ### Layout
@@ -10,7 +10,7 @@ designed to enrich the synchronous sessions. The rest of this page
 will detail how we implemented the workshop, but feel free to
 adapt to your purposes.
 
-### Intro & instructuion email
+### Intro & instruction email
 
 We sent the following email out to all registrants:
 
@@ -229,7 +229,6 @@ Here is the breakdown of the session, which is about 75 minutes long:
 ### Follow up email
 
 The following email was sent to wrap up the learning community:
-
 
 "Thank you all so much for your participation in this learning
 community. It was a true pleasure working with and learning from
