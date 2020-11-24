@@ -18,11 +18,11 @@ Agreement](`LINK TO COMMUNITY AGREEMENT`).
 
 ---
 
-[Next (Additional Resources)](./additional-resources-1.html)
+[Next (Additional Resources)](./additional-resources-1.md)
 
 [Previous (Review: Trauma-Informed Teaching and
-Learning)](./titl.html)
+Learning)](./titl.md)
 
-[Module 1 Overview](./module1.html)
+[Module 1 Overview](./module1.md)
 
 ---

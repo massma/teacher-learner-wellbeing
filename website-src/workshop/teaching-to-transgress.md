@@ -18,8 +18,8 @@ discussion board at the end of this module.
 
 ------------------
 
-[Next (Review: Trauma-Informed Teaching and Learning)](./titl.html)
+[Next (Review: Trauma-Informed Teaching and Learning)](./titl.md)
 
-[Previous (Review: Higher Ed Mental Health Data)](./mental-health-data.html)
+[Previous (Review: Higher Ed Mental Health Data)](./mental-health-data.md)
 
-[Module 1 Overview](./module1.html)
+[Module 1 Overview](./module1.md)

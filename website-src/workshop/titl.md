@@ -23,8 +23,8 @@ synchronous session.
 
 ---------------------------------------
 
-[Next (Discuss: Mental Wellbeing)](./discuss-wellbeing.html)
+[Next (Discuss: Mental Wellbeing)](./discuss-wellbeing.md)
 
-[Previous (Read: Teaching to Transgress)](./teaching-to-transgress.html)
+[Previous (Read: Teaching to Transgress)](./teaching-to-transgress.md)
 
-[Module 1 Overview](./module1.html)
+[Module 1 Overview](./module1.md)

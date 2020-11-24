@@ -30,12 +30,12 @@ comfortable, opting out as needed.
 
 Target word count: <300
 
-Please email the response to `FACILITATORS' EMAIL`.
+Please email your response to `FACILITATORS' EMAIL`.
 
 --------------------------------------
 
-[Next (Review: Higher Ed Mental Health Data)](./mental-health-data.html)
+[Next (Review: Higher Ed Mental Health Data)](./mental-health-data.md)
 
-[Previous (Review: Community Agreement)](./community-agreement.html)
+[Previous (Review: Community Agreement)](./community-agreement.md)
 
-[Module 1 Overview](./module1.html)
+[Module 1 Overview](./module1.md)

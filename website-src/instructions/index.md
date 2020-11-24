@@ -10,9 +10,42 @@ designed to enrich the synchronous sessions. The rest of this page
 will detail how we implemented the workshop, but feel free to
 adapt to your purposes.
 
+### Workshop description and blurb
+
+This is what we used for advertising the workshop:
+
+"It is no secret that stress, anxiety, and other mental health
+challenges are prevalent in higher education. In fact, in recent
+years, more students have reported experiencing negative academic
+impacts from stress than from the common cold and flu (c.f., NCHA,
+2019). Yet the standard mental health policies we include in our
+syllabi often frame these experiences as something to be addressed
+solely outside of the classroom. This two-part workshop takes a
+different approach, recognizing that instructors and TAs have the
+power to support and prioritize students’ (and our own) physical and
+mental wellbeing in the classroom, and that doing so can foster
+student learning. This re-centering of health and wellbeing is crucial
+now more than ever, as the effects of the COVID-19 pandemic intersect
+with and amplify pre-existing stressors for teachers and learners,
+including but not limited to anti-Black racism, political turmoil, and
+increasingly common climate disasters.
+
+In this two-part workshop, participants will explore the relationships
+between mental and emotional health, the human body, and
+learning. Through a combination of asynchronous modules and
+synchronous workshop and discussion sessions, participants will frame
+the literature of mental health and bodily awareness in the classroom
+with their lived experience and leave with concrete methods of
+incorporating new insights into their own practice, with a particular
+focus on creating learning objectives and designing assessments that
+consider and support the whole student. These novel approaches will
+help students and teachers to experience more positive, rewarding, and
+healthy class spaces, and to support each other in working toward this
+vision."
+
 ### Intro & instruction email
 
-We sent the following email out to all registrants:
+Our initial contact with registrants was through email:
 
 "Welcome to the Learning Community, Considering the Whole Self in
 Teaching and Learning: Mental and Physical Wellbeing in the Classroom!
@@ -22,7 +55,7 @@ at `LOCATION` (e.g., Zoom), and we wanted to reach out about some prep
 for our first get-together:
 
 - Please work through the content in [Module
-  1](../workshop/module1.html). This module provides the necessary
+  1](../workshop/module1.md). This module provides the necessary
   foundation for our discussion-packed Zoom session, allows us to
   shorten the Zoom session (limiting Zoom fatigue), and also jump
   starts community building with an asynchronous discussion board. We
@@ -38,9 +71,8 @@ for our first get-together:
 This session is part of a two-part Learning Community, and the
 Learning Community is greater than the sum of its parts. Attendance
 across both sessions yields a much richer experience, while also
-putting the “community” in “Learning Community.”  If you have not had
-a chance, you can register for the highly recommended second session
-at: `REGISTRATION URL`.
+putting the “community” in “Learning Community.”  We hope to see you
+all a the second session as well!
 
 In the meantime, if you have any questions or concerns please don’t
 hesitate to reach out (`FACILITATORS' EMAIL`)."
@@ -108,9 +140,9 @@ Here is the breakdown of the session, which is about 75 minutes long:
 - :35 - :40 SHARE OUT
 
 	Bring everyone back together and amplify a couple of entries from
-    the colalborative doc before presenting the [TITL
+    the collaborative doc before presenting the [TITL
     handout](https://traumainformedteachingblog.files.wordpress.com/2020/03/examples-of-titl-in-college-classrooms-3.2020-color-3.pdf)
-    (Slide 8) and introducing the assesment exercise (screen share
+    (Slide 8) and introducing the assessment exercise (screen share
     collaborative document).
 
 
@@ -157,7 +189,7 @@ session on `DATE OF WORKSHOP PART 2` - welcome! We are really looking
 forward to `DAY OF WORKSHOP PART 2` and exploring the possibilities of
 embodied pedagogy in the classroom! A few points before next session:
 
-- We designed [Module 2](../workshop/module2.html) to enrich next `DAY OF WORKSHOP PART 2`’s
+- We designed [Module 2](../workshop/module2.md) to enrich next `DAY OF WORKSHOP PART 2`’s
   discussion, and we hope you are able to work through the content
   before we meet. However, none of it is required and the overview
   page provides instructions on which activities we recommend
@@ -247,3 +279,7 @@ We also welcome more detailed feedback, if you care to share it, via
 email at `FACILITATORS' EMAIL`.
 
 Many thanks and see you soon!"
+
+-------
+
+[Workshop Homepage](../index.md)

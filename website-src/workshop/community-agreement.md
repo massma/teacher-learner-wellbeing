@@ -7,6 +7,6 @@ COMMUNITY AGREEMENT`), which will inform our interactions with each other throug
 
 ---------------------------
 
-[Next (Reflect: Mental Wellbeing)](./mental-wellbeing.html)
+[Next (Reflect: Mental Wellbeing)](./mental-wellbeing.md)
 
-[Module 1 Overview](./module1.html)
+[Module 1 Overview](./module1.md)

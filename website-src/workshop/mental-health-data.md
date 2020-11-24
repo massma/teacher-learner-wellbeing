@@ -21,8 +21,8 @@ optionally), consider:
 
 --------------------------------------
 
-[Next (Read: Teaching to Transgress)](./teaching-to-transgress.html)
+[Next (Read: Teaching to Transgress)](./teaching-to-transgress.md)
 
-[Previous (Reflect: Mental Wellbeing)](./mental-wellbeing.html)
+[Previous (Reflect: Mental Wellbeing)](./mental-wellbeing.md)
 
-[Module 1 Overview](./module1.html)
+[Module 1 Overview](./module1.md)

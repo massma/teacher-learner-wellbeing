@@ -55,3 +55,7 @@ Attribution 4.0 International License</a>
   All code (~Shakefile.hs~) is provided under either a BSD 3-clause
   license or the Apache 2.0 License, at the user's discretion. See
   ~LICENSE.org~.
+* TODO todo list
+  - [ ] make CLI tool to take options to fill in wildcards
+    (instrutor's names, emails, dates, urls, etc.)
+  - [ ] move presentations in Google slides over to reveal.js?
