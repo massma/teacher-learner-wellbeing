@@ -11,7 +11,7 @@ modules designed to to enrich our synchronous discussions:
 
 - [Module 1: Considering Mental Wellbeing in Teaching and Learning](module1.md) (prep for the session on `DATE OF WORKSHOP PART 1`)
 
-- [Module 2: Considering the Body in Teaching and Learning](module2.md) (prep for the session on `DATE OF WORKSHOP PART 1`)
+- [Module 2: Considering the Body in Teaching and Learning](module2.md) (prep for the session on `DATE OF WORKSHOP PART 2`)
 
 We look forward to seeing you all soon!
 

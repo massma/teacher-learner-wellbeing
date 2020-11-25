@@ -67,3 +67,5 @@ title: "Additional Resources"
 [Previous (Discuss: Mental Wellbeing)](./discuss-wellbeing.md)
 
 [Module 1 Overview](./module1.md)
+
+[Workshop homepage](./index.md)

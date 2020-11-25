@@ -38,6 +38,8 @@ wellbeing, and your feedback is welcome throughout.
 
 -------
 
+[Next (Review: Community Agreement)](./community-agreement.md)
+
 [Workshop homepage](./index.md)
 
 [Session 2 asynchronous materials](./module2.md)

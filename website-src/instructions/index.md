@@ -10,6 +10,38 @@ designed to enrich the synchronous sessions. The rest of this page
 will detail how we implemented the workshop, but feel free to
 adapt to your purposes.
 
+### Workshop prep
+
+You will need to put a few things together:
+
+1. Copy our sample community agreement, slides and collaborative
+   document over to your Google drive:
+   - [Slides Session
+     1](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
+   - [Slides Session
+     2](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
+   - [Collaborative Document Session
+     1](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)
+   - [Collaborative Document Session
+     2](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing)
+   - [Community Agreement](https://docs.google.com/document/d/1Q1T8TvVuFR5UGB3tkQnRpxviP8BKMS9X3j1uNLw5QFA/edit?usp=sharing)
+2. Set up an online discussion board of some type. Possible platforms
+   include:
+   - Piazza
+   - CourseWorks/Canvas Discussions
+   - Github/Gitlab Issues
+
+   More informal social platforms could also probably be adapted, like
+   Keybase Teams/Slack, Signal/WhatsApp, etc.
+
+3. Install the course website
+   (https://github.com/massma/teacher-learner-wellbeing). This is a
+   little technical, so if you have any trouble at all please reach
+   out to Adam at akm2203@columbia.edu. If you do reach out, you are
+   doing us a favor: it will help us refine our instructions to make
+   the material more accessible to future facilitators.
+
+
 ### Workshop description and blurb
 
 This is what we used for advertising the workshop:
@@ -50,9 +82,8 @@ Our initial contact with registrants was through email:
 "Welcome to the Learning Community, Considering the Whole Self in
 Teaching and Learning: Mental and Physical Wellbeing in the Classroom!
 We are really looking forward to seeing you all at `DATE OF WORKSHOP
-PART 1`
-at `LOCATION` (e.g., Zoom), and we wanted to reach out about some prep
-for our first get-together:
+PART 1` at `LOCATION`, and we wanted to reach out about some prep for
+our first get-together:
 
 - Please work through the content in [Module
   1](../workshop/module1.md). This module provides the necessary
@@ -62,11 +93,11 @@ for our first get-together:
   really hope everyone is able to get a chance to engage with all the
   asynchronous material, but if for whatever reason you are not able
   to complete everything, we still encourage you to post to the
-  discussion board and attend the in-person session on `DATE OF
-  WORKSHOP`. Everyone has valuable perspective and expertise to bring
-  to our discussions, and while the material will help enrich the
-  discussion, we do not want to limit anyone’s participation because
-  of a scarcity of time or mental bandwidth.
+  discussion board and attend the in-person session on `DAY OF
+  WORKSHOP PART 1`. Everyone has valuable perspective and expertise to
+  bring to our discussions, and while the material will help enrich
+  the discussion, we do not want to limit anyone’s participation
+  because of a scarcity of time or mental bandwidth.
 
 This session is part of a two-part Learning Community, and the
 Learning Community is greater than the sum of its parts. Attendance
@@ -79,11 +110,12 @@ hesitate to reach out (`FACILITATORS' EMAIL`)."
 
 ### Synchronous Session 1
 
-Slides are available
+Sample slides are available
 [here](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
 (TODO: move presentation to reveal.js?); but most of session focuses
-around discussion and the collaborative document available
-[here](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing).
+around discussion and the collaborative document (example
+doc available
+[here](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)).
 
 Here is the breakdown of the session, which is about 75 minutes long:
 
@@ -182,7 +214,7 @@ thank you again for such an engaging and enriching session. Here is a
 link to the collaborative document with all of the beautiful insights
 generated from that session:
 
-https://docs.google.com/document/d/1r70_NKg9sB-2qWH9hNwp5B_1jlcLh0bGJmRba5s5OOQ/edit?usp=sharing
+`LINK TO COLLABORATIVE DOC 1`
 
 To those that could not make it but are joining us for the second
 session on `DATE OF WORKSHOP PART 2` - welcome! We are really looking
@@ -196,9 +228,7 @@ embodied pedagogy in the classroom! A few points before next session:
   prioritizing if you are too busy and/or stressed to engage with
   everything.
 
-- The Zoom link will be sent out next week. In order to receive the
-  zoom link please make sure to register for the second session if you
-  have not done so already: `REGISTRATION URL`.
+- The Zoom link will be sent out next week.
 
 - We noticed that some of you mentioned past experience with “warm up”
   exercises like the one that Abby led on Wednesday. If any of you are
@@ -213,11 +243,11 @@ Most importantly, have a great weekend!"
 
 ### Synchronous Session 2
 
-Slides are available
+Sample slides are available
 [here](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
 (TODO: move presentation to reveal.js?); but most of session focuses
-around discussion and the collaborative document available
-[here](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing).
+around discussion and the collaborative document (example available
+[here](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing)).
 
 Here is the breakdown of the session, which is about 75 minutes long:
 
@@ -267,13 +297,13 @@ community. It was a true pleasure working with and learning from
 everyone. Below, please find the links to the two collaborative
 documents we worked with for your reference.
 
-- [Session 1](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)
+- `LINK TO COLLABORATIVE DOC 1`
 
-- [Session 2](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing)
+- `LINK TO COLLABORATIVE DOC 2`
 
 And, if you didn't get a chance, please take a moment to give us your
-feedback on this learning community by filling out this survey `INSERT
-LINK TO FEEDBACK SURVEY`.
+feedback on this learning community by filling out this survey `LINK
+TO FEEDBACK SURVEY`.
 
 We also welcome more detailed feedback, if you care to share it, via
 email at `FACILITATORS' EMAIL`.

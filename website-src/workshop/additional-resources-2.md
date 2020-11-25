@@ -51,3 +51,5 @@ title: "Additional Resources"
 [Previous (Prep: Bring a Learning Objective to Wednesday's Session)](./learning-objective.md)
 
 [Module 2 Overview](./module2.md)
+
+[Workshop homepage](./index.md)

@@ -22,7 +22,7 @@ one.
 
 --------
 
-[Next (Additional Resources)](./additional-resource-2.md)
+[Next (Additional Resources)](./additional-resources-2.md)
 
 [Previous (Embodied Learning Scavenger Hunt)](./scavenger-hunt.md)
 
