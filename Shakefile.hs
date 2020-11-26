@@ -1,7 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE TypeFamilies #-}
 {-# OPTIONS_GHC -Wall #-}
 {-# OPTIONS_GHC -Wcompat #-}
 {-# OPTIONS_GHC -Wincomplete-record-updates #-}
@@ -126,34 +122,12 @@ data Person = Person
     lastName :: !String,
     email :: !String
   }
-  deriving (Show, Eq, Generic)
-
--- instance Typeable Person
-
-instance Hashable Person
-
-instance Binary Person
-
-instance NFData Person
-
-newtype Time' = T Time.UTCTime deriving (Show, Eq, Generic, Read)
-
-instance Binary Time' where
-  put (T x) = put (show x)
-  get = T . read <$> get
-
-instance NFData Time'
-
-instance Hashable Time' where
-  hashWithSalt i (T x) = hashWithSalt i (show x)
-
-unT :: Time' -> Time.UTCTime
-unT (T x) = x
+  deriving (Show)
 
 data LCConfig = LCConfig
   { facilitators :: ![Person],
-    date1 :: !Time',
-    date2 :: !Time',
+    date1 :: !Time.UTCTime,
+    date2 :: !Time.UTCTime,
     location :: !String,
     communityLink :: !String,
     hooksLink :: !String,
@@ -165,13 +139,7 @@ data LCConfig = LCConfig
     pandoc :: !FilePath,
     configPath :: !FilePath
   }
-  deriving (Show, Eq, Typeable, Generic)
-
-instance Hashable LCConfig
-
-instance Binary LCConfig
-
-instance NFData LCConfig
+  deriving (Show)
 
 defaultLCConfig =
   LCConfig
@@ -188,15 +156,13 @@ defaultLCConfig =
             }
         ],
       date1 =
-        T $
-          Time.UTCTime
-            (Time.fromGregorian 2020 10 21)
-            (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
+        Time.UTCTime
+          (Time.fromGregorian 2020 10 21)
+          (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
       date2 =
-        T $
-          Time.UTCTime
-            (Time.fromGregorian 2020 10 28)
-            (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
+        Time.UTCTime
+          (Time.fromGregorian 2020 10 28)
+          (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
       location = "<ZOOM LINK>",
       communityLink = "https://docs.google.com/document/d/1Q1T8TvVuFR5UGB3tkQnRpxviP8BKMS9X3j1uNLw5QFA/edit?usp=sharing",
       hooksLink = "https://www.routledge.com/Teaching-to-Transgress-Education-as-the-Practice-of-Freedom/hooks/p/book/9780415908085",
@@ -208,13 +174,6 @@ defaultLCConfig =
       pandoc = "bin" </> "pandoc",
       configPath = "abby-adam.config"
     }
-
-testT :: Time'
-testT =
-  T $
-    Time.UTCTime
-      (Time.fromGregorian 2020 10 21)
-      (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0))
 
 data ParsedMarkdown = Text !String | WildCard ![String] deriving (Show)
 
@@ -244,8 +203,8 @@ writeVerbatim = concat . fmap f
 writeMarkdown :: LCConfig -> [ParsedMarkdown] -> String
 writeMarkdown lc = foldMap f
   where
-    timePrinter = Time.formatTime Time.defaultTimeLocale "%A, %B %-d at %-I:%M %P" . unT
-    dayPrinter = Time.formatTime Time.defaultTimeLocale "%A" . unT
+    timePrinter = Time.formatTime Time.defaultTimeLocale "%A, %B %-d at %-I:%M %P"
+    dayPrinter = Time.formatTime Time.defaultTimeLocale "%A"
     concatPeople = foldr g ""
       where
         g x "" = x
@@ -311,8 +270,8 @@ parseConfig dlc s = (M.fromMaybe dlc . parseMap . Map.fromListWith (<>) . fmap f
       return
         ( dlc
             { facilitators = ps,
-              date1 = T t1,
-              date2 = T t2,
+              date1 = t1,
+              date2 = t2,
               location = l,
               communityLink = ca,
               hooksLink = h,
@@ -370,10 +329,12 @@ parseConfig' s = maybeParse parser s
 -- shakeArgsWith is what we want
 -- return config'
 
-rules :: Rules ()
-rules = do
+configPath' = "config.out"
+
+rules :: LCConfig -> Rules ()
+rules lcConfig = do
   action $ do
-    lcConfig <- askOracle (LCConfigOracle ())
+    (writeFileChanged configPath' . show) $ lcConfig
     b <- doesFileExist (pandoc lcConfig)
     if b
       then return ()
@@ -390,7 +351,7 @@ rules = do
           fmap
             (("website-src" </> dropDirectory1 out) -<.>)
             ["html", "md", "org"]
-    lcConfig <- askOracle (LCConfigOracle ())
+    need [configPath']
     sources <-
       mapM (\x -> doesFileExist x >>= \bool -> return (bool, x)) possibleSources
     case sources of
@@ -444,27 +405,20 @@ getConfigPath flags' = go flags'
     go (_ : xs) = go xs
     go [] = configPath defaultLCConfig
 
-newtype LCConfigOracle = LCConfigOracle ()
-  deriving (Show, Typeable, Eq, Hashable, Binary, NFData)
-
-type instance RuleResult LCConfigOracle = LCConfig
-
 main :: IO ()
 main =
   shakeArgsWith shakeOptions {shakeFiles = "_build"} flags $ \flags' targets ->
     (pure . Just)
       ( do
           let configPath' = getConfigPath flags'
-          addOracleCache $ \(LCConfigOracle _) ->
-            alwaysRerun
-              >> putInfo
-                configPath'
-              >> parseConfig
-                ( defaultLCConfig
-                    { configPath = configPath',
-                      pandoc = getPandoc flags'
-                    }
-                )
-              <$> readFile' configPath'
-          if null targets then rules else want targets >> withoutActions rules
+          lcConfig <-
+            parseConfig
+              ( defaultLCConfig
+                  { configPath = configPath',
+                    pandoc = getPandoc flags'
+                  }
+              )
+              <$> liftIO (readFile configPath')
+          let rules' = rules lcConfig
+          if null targets then rules' else want targets >> withoutActions rules'
       )
