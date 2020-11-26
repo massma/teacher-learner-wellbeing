@@ -1,3 +1,7 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE TypeFamilies #-}
 {-# OPTIONS_GHC -Wall #-}
 {-# OPTIONS_GHC -Wcompat #-}
 {-# OPTIONS_GHC -Wincomplete-record-updates #-}
@@ -18,9 +22,12 @@ import qualified Data.Map as Map
 import qualified Data.Maybe as M
 import qualified Data.Time as Time
 import Development.Shake
+import Development.Shake.Classes
 import Development.Shake.Command
 import Development.Shake.FilePath
 import Development.Shake.Util
+import GHC.Generics
+import System.Console.GetOpt
 import qualified Text.ParserCombinators.ReadP as RP
 import Text.Printf
 
@@ -91,7 +98,7 @@ websitePandoc lc input output
         ]
         >> liftIO (readFile input) >>= \str ->
           cmd_
-            "pandoc"
+            (pandoc lc)
             ( Stdin
                 ( ( M.fromMaybe str
                       . (\s -> writer <$> maybeParse parseMarkdown s)
@@ -119,12 +126,34 @@ data Person = Person
     lastName :: !String,
     email :: !String
   }
-  deriving (Show)
+  deriving (Show, Eq, Generic)
+
+-- instance Typeable Person
+
+instance Hashable Person
+
+instance Binary Person
+
+instance NFData Person
+
+newtype Time' = T Time.UTCTime deriving (Show, Eq, Generic, Read)
+
+instance Binary Time' where
+  put (T x) = put (show x)
+  get = T . read <$> get
+
+instance NFData Time'
+
+instance Hashable Time' where
+  hashWithSalt i (T x) = hashWithSalt i (show x)
+
+unT :: Time' -> Time.UTCTime
+unT (T x) = x
 
 data LCConfig = LCConfig
   { facilitators :: ![Person],
-    date1 :: !Time.UTCTime,
-    date2 :: !Time.UTCTime,
+    date1 :: !Time',
+    date2 :: !Time',
     location :: !String,
     communityLink :: !String,
     hooksLink :: !String,
@@ -132,9 +161,17 @@ data LCConfig = LCConfig
     discussionLink :: !String,
     collab1Link :: !String,
     collab2Link :: !String,
-    fillInstructions :: !Bool
+    fillInstructions :: !Bool,
+    pandoc :: !FilePath,
+    configPath :: !FilePath
   }
-  deriving (Show)
+  deriving (Show, Eq, Typeable, Generic)
+
+instance Hashable LCConfig
+
+instance Binary LCConfig
+
+instance NFData LCConfig
 
 defaultLCConfig =
   LCConfig
@@ -151,13 +188,15 @@ defaultLCConfig =
             }
         ],
       date1 =
-        Time.UTCTime
-          (Time.fromGregorian 2020 10 21)
-          (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
+        T $
+          Time.UTCTime
+            (Time.fromGregorian 2020 10 21)
+            (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
       date2 =
-        Time.UTCTime
-          (Time.fromGregorian 2020 10 28)
-          (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
+        T $
+          Time.UTCTime
+            (Time.fromGregorian 2020 10 28)
+            (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0)),
       location = "<ZOOM LINK>",
       communityLink = "https://docs.google.com/document/d/1Q1T8TvVuFR5UGB3tkQnRpxviP8BKMS9X3j1uNLw5QFA/edit?usp=sharing",
       hooksLink = "https://www.routledge.com/Teaching-to-Transgress-Education-as-the-Practice-of-Freedom/hooks/p/book/9780415908085",
@@ -165,14 +204,17 @@ defaultLCConfig =
       discussionLink = "https://github.com/massma/teacher-learner-wellbeing/issues",
       collab1Link = "https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing",
       collab2Link = "https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing",
-      fillInstructions = False
+      fillInstructions = False,
+      pandoc = "bin" </> "pandoc",
+      configPath = "abby-adam.config"
     }
 
-testT :: Time.UTCTime
+testT :: Time'
 testT =
-  Time.UTCTime
-    (Time.fromGregorian 2020 10 21)
-    (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0))
+  T $
+    Time.UTCTime
+      (Time.fromGregorian 2020 10 21)
+      (Time.timeOfDayToTime (Time.TimeOfDay 14 40 0))
 
 data ParsedMarkdown = Text !String | WildCard ![String] deriving (Show)
 
@@ -202,8 +244,8 @@ writeVerbatim = concat . fmap f
 writeMarkdown :: LCConfig -> [ParsedMarkdown] -> String
 writeMarkdown lc = foldMap f
   where
-    timePrinter = Time.formatTime Time.defaultTimeLocale "%A, %B %-d at %-I:%M %P"
-    dayPrinter = Time.formatTime Time.defaultTimeLocale "%A"
+    timePrinter = Time.formatTime Time.defaultTimeLocale "%A, %B %-d at %-I:%M %P" . unT
+    dayPrinter = Time.formatTime Time.defaultTimeLocale "%A" . unT
     concatPeople = foldr g ""
       where
         g x "" = x
@@ -237,8 +279,12 @@ writeMarkdown lc = foldMap f
 test :: String
 test = ":asdlfkjl;asdkjf \nasdflkj; `WILDCARD' BY\n ADAM`\nasdflk;j"
 
-parseConfig :: String -> Maybe LCConfig
-parseConfig s = (parseMap . Map.fromListWith (<>) . fmap f) xs
+parseConfig ::
+  -- | default LC
+  LCConfig ->
+  String ->
+  LCConfig
+parseConfig dlc s = (M.fromMaybe dlc . parseMap . Map.fromListWith (<>) . fmap f) xs
   where
     xs :: [(String, String)]
     xs = case parseConfig' s of
@@ -248,7 +294,6 @@ parseConfig s = (parseMap . Map.fromListWith (<>) . fmap f) xs
     headMaybe (x : _) = Just x
     f :: (String, String) -> (String, [String])
     f (key, val) = (key, [val])
-
     parseMap :: Map.Map String [String] -> Maybe LCConfig
     parseMap m = do
       ps <- mapM (maybeParse parseFacilitator) =<< (m Map.!? "facilitator")
@@ -264,10 +309,10 @@ parseConfig s = (parseMap . Map.fromListWith (<>) . fmap f) xs
       fill <- maybeParse parseBool =<< headMaybe =<< (m Map.!? "fill instructions")
       -- let fill = False
       return
-        ( LCConfig
+        ( dlc
             { facilitators = ps,
-              date1 = t1,
-              date2 = t2,
+              date1 = T t1,
+              date2 = T t2,
               location = l,
               communityLink = ca,
               hooksLink = h,
@@ -325,11 +370,16 @@ parseConfig' s = maybeParse parser s
 -- shakeArgsWith is what we want
 -- return config'
 
-main :: IO ()
-main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
-  let configPath = "abby-adam.config"
-
+rules :: Rules ()
+rules = do
   action $ do
+    lcConfig <- askOracle (LCConfigOracle ())
+    b <- doesFileExist (pandoc lcConfig)
+    if b
+      then return ()
+      else cmd_ "cabal" ["install", "pandoc", "--installdir=" <> (takeDirectory . pandoc) lcConfig]
+    putInfo (pandoc lcConfig)
+    putInfo (configPath lcConfig)
     inputs <-
       fmap ("website-src" </>)
         <$> getDirectoryFiles "website-src" ["//*.org", "//*.md", "//*.html"]
@@ -340,8 +390,7 @@ main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
           fmap
             (("website-src" </> dropDirectory1 out) -<.>)
             ["html", "md", "org"]
-    lcConfig <-
-      M.fromMaybe defaultLCConfig . parseConfig <$> readFile' configPath
+    lcConfig <- askOracle (LCConfigOracle ())
     sources <-
       mapM (\x -> doesFileExist x >>= \bool -> return (bool, x)) possibleSources
     case sources of
@@ -358,3 +407,64 @@ main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
   phony "clean" $ do
     putInfo "Cleaning files in _build"
     removeFilesAfter "_build" ["//*"]
+
+data Flags
+  = Pandoc FilePath
+  | Config FilePath
+  deriving (Eq)
+
+flags =
+  [ Option
+      ""
+      ["pandoc"]
+      ( OptArg
+          (Right . Pandoc . M.fromMaybe (pandoc defaultLCConfig))
+          "FILE"
+      )
+      "path to pandoc executable",
+    Option
+      ""
+      ["config"]
+      ( OptArg
+          (Right . Config . M.fromMaybe (configPath defaultLCConfig))
+          "DIR"
+      )
+      "path to config file"
+  ]
+
+getPandoc flags' = go flags'
+  where
+    go (Pandoc x : _) = x
+    go (_ : xs) = go xs
+    go [] = pandoc defaultLCConfig
+
+getConfigPath flags' = go flags'
+  where
+    go (Config x : _) = x
+    go (_ : xs) = go xs
+    go [] = configPath defaultLCConfig
+
+newtype LCConfigOracle = LCConfigOracle ()
+  deriving (Show, Typeable, Eq, Hashable, Binary, NFData)
+
+type instance RuleResult LCConfigOracle = LCConfig
+
+main :: IO ()
+main =
+  shakeArgsWith shakeOptions {shakeFiles = "_build"} flags $ \flags' targets ->
+    (pure . Just)
+      ( do
+          let configPath' = getConfigPath flags'
+          addOracleCache $ \(LCConfigOracle _) ->
+            alwaysRerun
+              >> putInfo
+                configPath'
+              >> parseConfig
+                ( defaultLCConfig
+                    { configPath = configPath',
+                      pandoc = getPandoc flags'
+                    }
+                )
+              <$> readFile' configPath'
+          if null targets then rules else want targets >> withoutActions rules
+      )

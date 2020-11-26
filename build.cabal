@@ -26,6 +26,9 @@ common build-dependencies
     , text
     , vector
     , time
+  -- below adds significantly to initial build times (30 min on my
+  -- laptop!): instead let's isntall the executable with shake
+  build-tool-depends: pandoc:pandoc
   default-language: Haskell2010
 
 
