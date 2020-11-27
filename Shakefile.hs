@@ -162,8 +162,7 @@ data LCConfig = LCConfig
     collab1Link :: !String,
     collab2Link :: !String,
     fillInstructions :: !Bool,
-    pandoc :: !FilePath,
-    configPath :: !FilePath
+    pandoc :: !FilePath
   }
   deriving (Show)
 
@@ -197,9 +196,11 @@ defaultLCConfig =
       collab1Link = "https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing",
       collab2Link = "https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing",
       fillInstructions = False,
-      pandoc = "bin" </> "pandoc",
-      configPath = "abby-adam.config"
+      pandoc = "bin" </> "pandoc"
     }
+
+defaultConfigPath :: String
+defaultConfigPath = "abby-adam.config"
 
 data ParsedMarkdown = Text !String | WildCard ![String] deriving (Show)
 
@@ -427,7 +428,7 @@ flags =
       ""
       ["config"]
       ( OptArg
-          (Right . Config . M.fromMaybe (configPath defaultLCConfig))
+          (Right . Config . M.fromMaybe defaultConfigPath)
           "DIR"
       )
       "path to config file"
@@ -443,7 +444,7 @@ getConfigPath flags' = go flags'
   where
     go (Config x : _) = x
     go (_ : xs) = go xs
-    go [] = configPath defaultLCConfig
+    go [] = defaultConfigPath
 
 main :: IO ()
 main =
@@ -454,8 +455,7 @@ main =
           lcConfig <-
             parseConfig
               ( defaultLCConfig
-                  { configPath = configPath',
-                    pandoc = getPandoc flags'
+                  { pandoc = getPandoc flags'
                   }
               )
               <$> liftIO (readFile configPath')
