@@ -16,15 +16,21 @@ You will need to put a few things together:
 
 1. Copy our sample community agreement, slides and collaborative
    document over to your Google drive:
-   - [Slides Session
-     1](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
-   - [Slides Session
-     2](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
    - [Collaborative Document Session
      1](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)
    - [Collaborative Document Session
      2](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing)
    - [Community Agreement](https://docs.google.com/document/d/1Q1T8TvVuFR5UGB3tkQnRpxviP8BKMS9X3j1uNLw5QFA/edit?usp=sharing)
+   - [Slides Session
+     1](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
+     (optional: you could also use the [reveal.js slides](../presentations/module1.md) that are a
+     part of the website)
+   - [Slides Session
+     2](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
+     (optional: you could also use the [reveal.js
+     slides](../presentations/module2.md) that are a part of the
+     website)
+
 2. Set up an online discussion board of some type. Possible platforms
    include:
    - Piazza
@@ -35,11 +41,12 @@ You will need to put a few things together:
    Keybase Teams/Slack, Signal/WhatsApp, etc.
 
 3. Install the course website
-   (https://github.com/massma/teacher-learner-wellbeing). This is a
-   little technical, so if you have any trouble at all please reach
-   out to Adam at akm2203@columbia.edu. If you do reach out, you are
-   doing us a favor: it will help us refine our instructions to make
-   the material more accessible to future facilitators.
+   (https://github.com/massma/teacher-learner-wellbeing) to your
+   website. This is a little technical, so if you have any trouble at
+   all please reach out to Adam at akm2203@columbia.edu. If you do
+   reach out, you are doing us a favor: it will help us refine our
+   instructions to make the material more accessible to future
+   facilitators.
 
 
 ### Workshop description and blurb
