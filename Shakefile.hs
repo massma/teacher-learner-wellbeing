@@ -64,6 +64,37 @@ replaceAll s r xs = go xs
         | null rest -> h
         | otherwise -> (head h) : (go (drop 1 ys))
 
+revealArgs :: String -> String -> [String]
+revealArgs out fromType =
+  [ "--from",
+    fromType,
+    "--to",
+    "revealjs",
+    "-s",
+    "-o",
+    out,
+    "-V",
+    -- note that this has to be relative path, so will only in
+    -- presentations dir. we could in the future just symlink to
+    -- reveal.js in the parent directory
+    "revealjs-url=../../reveal.js",
+    "-V",
+    "theme=solarized"
+  ]
+
+websiteArgs :: String -> String -> [String]
+websiteArgs out fromType =
+  [ "--standalone",
+    "-o",
+    out,
+    "-c",
+    css,
+    "--from",
+    fromType,
+    "--to",
+    "html5"
+  ]
+
 websitePandoc ::
   -- | config
   LCConfig ->
@@ -81,11 +112,15 @@ websitePandoc lc input output
   where
     inExt = takeExtension input
     outExt = takeExtension output
-    isInstruction = (== ["instructions"]) . take 1 . drop 1 . splitDirectories
+    dirEq dir = (== [dir]) . take 1 . drop 1 . splitDirectories
+    isInstruction = dirEq "instructions"
+    isPresentation = dirEq "presentations"
+    args = if isPresentation input then revealArgs else websiteArgs
     writer =
       if isInstruction input && not (fillInstructions lc)
         then writeVerbatim
         else writeMarkdown lc
+
     cmd__ fromType =
       need
         [ input,
@@ -103,16 +138,7 @@ websitePandoc lc input output
                     str
                 )
             )
-            [ "--standalone",
-              "-o",
-              output,
-              "-c",
-              css,
-              "--from",
-              fromType,
-              "--to",
-              "html5"
-            ]
+            (args output fromType)
 
 htmlFromSource :: FilePath -> FilePath
 htmlFromSource = (-<.> ".html") . ("public_html" </>) . dropDirectory1
@@ -221,6 +247,12 @@ writeMarkdown lc = foldMap f
     f (WildCard ["FACILITATORS'", "EMAIL"]) = emailPrinter (facilitators lc)
     f (WildCard ["FACILITATORS'", "NAME"]) =
       (concatPeople . fmap firstName . facilitators) lc
+    f (WildCard ["FACILITATORS'", "FULL", "NAME"]) =
+      ( concatPeople
+          . fmap (\x -> firstName x <> " " <> lastName x)
+          . facilitators
+      )
+        lc
     f (WildCard ["LINK", "TO", "COMMUNITY", "AGREEMENT"]) =
       linkPrinter (communityLink lc)
     f (WildCard ["LINK", "TO", "HOOKS"]) =
@@ -339,12 +371,20 @@ rules lcConfig = do
     if b
       then return ()
       else cmd_ "cabal" ["install", "pandoc", "--installdir=" <> (takeDirectory . pandoc) lcConfig]
-    putInfo (pandoc lcConfig)
-    putInfo (configPath lcConfig)
     inputs <-
       fmap ("website-src" </>)
         <$> getDirectoryFiles "website-src" ["//*.org", "//*.md", "//*.html"]
-    need (fmap htmlFromSource inputs)
+    images <-
+      fmap ("website-src" </>)
+        <$> getDirectoryFiles "website-src" ["//*.png"]
+
+    need
+      ( (fmap htmlFromSource inputs)
+          <> (fmap (("public_html" </>) . dropDirectory1) images)
+      )
+
+  "public_html//*.png" %> \out -> do
+    cmd_ "cp" [(("website-src" </>) . dropDirectory1) out, out]
 
   "public_html//*.html" %> \out -> do
     let possibleSources =
