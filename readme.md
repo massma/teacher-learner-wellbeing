@@ -54,8 +54,6 @@ To specify the configuration file run:
 cabal run build -- --config=abby-adam.config
 ```
 
-,
-
 replacing `abby-adam.config` with the path to your configuration file.
 
 ### Use your installed version of Pandoc instead of building from source
@@ -68,8 +66,6 @@ OS. This can be done with the option `--pandoc`:
 ``` {.bash}
 cabal run build -- --pandoc=/path/to/pandoc
 ```
-
-,
 
 replacing `/path/to/pandoc` with the path to your OS-installed version
 of Pandoc (e.g., `/bin/pandoc` on Linux).
