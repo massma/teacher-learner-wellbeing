@@ -77,7 +77,7 @@ revealArgs out fromType =
     -- note that this has to be relative path, so will only in
     -- presentations dir. we could in the future just symlink to
     -- reveal.js in the parent directory
-    "revealjs-url=../../reveal.js",
+    "revealjs-url=../reveal.js",
     "-V",
     "theme=solarized"
   ]
