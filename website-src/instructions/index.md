@@ -117,11 +117,11 @@ hesitate to reach out (`FACILITATORS' EMAIL`)."
 
 ### Synchronous Session 1
 
-Sample slides are available
-[here](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
-(TODO: move presentation to reveal.js?); but most of session focuses
-around discussion and the collaborative document (example
-doc available
+Sample slides are available [in Google slide
+format](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
+or in [reveal.js](../presentations/module1.md); but most of session
+focuses around discussion and the collaborative document (example doc
+available
 [here](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)).
 
 Here is the breakdown of the session, which is about 75 minutes long:
@@ -251,8 +251,10 @@ Most importantly, have a great weekend!"
 ### Synchronous Session 2
 
 Sample slides are available
-[here](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
-(TODO: move presentation to reveal.js?); but most of session focuses
+[in Google slide
+format](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
+or [reveal.hs](../presentations/module2.md)
+; but most of session focuses
 around discussion and the collaborative document (example available
 [here](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing)).
 
