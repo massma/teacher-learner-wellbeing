@@ -5,9 +5,10 @@ title: Considering the Whole Self in Teaching and Learning
 Welcome to the landing page for the workshop "Considering the Whole
 Self in Teaching and Learning: Mental and Physical Wellbeing in the
 Classroom"! This is a two part workshop, with two synchronous sessions
-on `DATE OF WORKSHOP PART 1` and `DATE OF WORKSHOP PART 2`. Before
-each synchronous session, we have put together some asynchronous
-modules designed to to enrich our synchronous discussions:
+on `DATE OF WORKSHOP PART 1` and `DATE OF WORKSHOP PART
+2`. Asynchronous modules are designed to to enrich our synchronous
+discussions, so if you can please look through the modules before each
+session:
 
 - [Module 1: Considering Mental Wellbeing in Teaching and Learning](module1.md) (prep for the session on `DATE OF WORKSHOP PART 1`)
 
