@@ -9,7 +9,7 @@ license:        (BSD-3-Clause OR Apache-2.0)
 license-file:   LICENSE.org
 build-type:     Simple
 extra-source-files:
-    readme.org
+    readme.md
     Makefile
 
 -- my default is to not even think twice about incluidng anything in
