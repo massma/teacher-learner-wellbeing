@@ -5,7 +5,7 @@ title: "Review: Higher Ed Mental Health Data"
 Now that we have reflected on our personal experiences with mental
 wellbeing, let's examine some general statistics on mental health in
 academia gathered from surveys and peer-reviewed research. Flip
-through this short slide deckPreview the document and **think about
+through this [short slide deck](https://docs.google.com/presentation/d/1SoG18Y57UKLFWS28iZ0hw5xJIZCedNPJaiACE9qr-DQ/edit?usp=sharing) and **think about
 how the mental health statistics and excerpts from the literature
 compare to your expectations based on personal experience** (while
 remembering that these numbers and insights are based on surveys and

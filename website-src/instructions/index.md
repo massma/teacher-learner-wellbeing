@@ -1,6 +1,12 @@
 ---
-title: Facilitators' Instructions for "Considering the Whole Self in Teaching and Learning"
+pagetitle: "Facilitators' Instructions: \"Considering the Whole Self in Teaching and Learning\""
 ---
+
+[Workshop Homepage](../index.md)
+
+-----
+
+## Facilitators' Instructions: "Considering the Whole Self in Teaching and Learning"
 
 ### Layout
 
@@ -41,7 +47,7 @@ You will need to put a few things together:
    Keybase Teams/Slack, Signal/WhatsApp, etc.
 
 3. Install the course website
-   (https://github.com/massma/teacher-learner-wellbeing) to your
+   (<https://github.com/massma/teacher-learner-wellbeing>) to your
    website. This is a little technical, so if you have any trouble at
    all please reach out to Adam at akm2203@columbia.edu. If you do
    reach out, you are doing us a favor: it will help us refine our

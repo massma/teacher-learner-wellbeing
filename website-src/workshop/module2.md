@@ -1,6 +1,8 @@
 ---
-title: "Session 2: Considering the Body in Teaching and Learning"
+pagetitle: "Part 2: The Body in Teaching and Learning"
 ---
+
+## Session 2: Considering the Body in Teaching and Learning
 
 Welcome to "Considering the Whole Self in Teaching and Learning" -
 part 2!  For this second part of our learning community, we turn to

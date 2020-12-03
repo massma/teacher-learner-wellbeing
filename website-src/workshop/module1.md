@@ -1,6 +1,8 @@
 ---
-title: "Session 1: Considering Mental Wellbeing in Teaching and Learning"
+pagetitle: "Part 1: Center the Soul"
 ---
+
+## Session 1: Considering Mental Wellbeing in Teaching and Learning
 
 Welcome to "Considering the Whole Self in Teaching and Learning"! This
 is part one of a learning community of graduate students designed to
@@ -11,13 +13,12 @@ embodied lives that impact our work in the classroom.
 In an effort to mitigate Zoom fatigue, an emotional and embodied
 obstacle that many of us are negotiating this semester, this learning
 community is designed to be engaged with in a hybrid
-asynchronous/synchronous form. This CourseWorks module presents
-materials relevant to the conversation around the focus of our first
-session, mental wellbeing in teaching and learning, as well as
-suggestions for how to engage with those materials. On `DATE OF
-WORKSHOP PART 1`, we will meet for a shorter-than-usual synchronous
-session via Zoom to discuss the materials and try our hand at putting
-them into practice.
+asynchronous/synchronous form. This module presents materials relevant
+to the conversation around the focus of our first session, mental
+wellbeing in teaching and learning, as well as suggestions for how to
+engage with those materials. On `DATE OF WORKSHOP PART 1`, we will
+meet for a shorter-than-usual synchronous session via Zoom to discuss
+the materials and try our hand at putting them into practice.
 
 This hybrid learning community form is an experiment in designing and
 facilitating learning activities in a manner that centers participant

@@ -4,11 +4,10 @@ title: Considering the Whole Self in Teaching and Learning
 
 Welcome to the landing page for the workshop "Considering the Whole
 Self in Teaching and Learning: Mental and Physical Wellbeing in the
-Classroom"! This is a two part workshop, with two synchronous sessions
-on `DATE OF WORKSHOP PART 1` and `DATE OF WORKSHOP PART
-2`. Asynchronous modules are designed to to enrich our synchronous
-discussions, so if you can please look through the modules before each
-session:
+Classroom"! This is a two part workshop, with synchronous sessions on
+`DATE OF WORKSHOP PART 1` and `DATE OF WORKSHOP PART 2`. Asynchronous
+modules are designed to to enrich our synchronous discussions, so if
+you are able please work through the modules before each session:
 
 - [Module 1: Considering Mental Wellbeing in Teaching and Learning](module1.md) (prep for the session on `DATE OF WORKSHOP PART 1`)
 
@@ -17,10 +16,6 @@ session:
 We look forward to seeing you all soon!
 
 -`FACILITATORS' NAME`
-
---------------
-
-This workshop was originally developed by [Abby Schroering](https://theatre-phd.columbia.edu/people/abby-schroering/) and [Adam Massmann](http://www.columbia.edu/~akm2203/), with mentoring from [Caitlin DeClerq](https://ctl.columbia.edu/about/team/caitlin-declercq/) and support from the [Senior Lead Teaching Fellowship](https://ctl.columbia.edu/graduate-instructors/opportunities-for-graduate-students/lead-teaching-fellows/senior-lead-teaching-fellowship/) program at Columbia University's [Center for Teaching and Learning](https://ctl.columbia.edu/).
 
 ---------
 <a rel="license"
