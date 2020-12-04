@@ -145,7 +145,7 @@ Here is the breakdown of the session, which is about 75 minutes long:
 - :05 - :10 WARM UP [Slide 4]
 
   Physical check-in (breath and awareness). Can be any activity, but a
-  sample script that we used is available here (TODO: link to script).
+  sample script that we used is available [here](module1-checkin.md).
 
 - :10 - :15 FRAME BOTH WORKSHOPS
 
@@ -273,8 +273,7 @@ Here is the breakdown of the session, which is about 75 minutes long:
 - :05 - :10
 
   Physical check-in (breath and awareness). Can be any activity, but a
-  sample script that we used is available here (TODO: link to
-  script). (Slide 3)
+  sample script that we used is available [here](module2-checkin.md). (Slide 3)
 
 
 - :10 - :15
