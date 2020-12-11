@@ -1,6 +1,8 @@
 ---
-title: "Embodied check-in script for Module 1"
+pagetitle: "Embodied check-in script for Module 1"
 ---
+
+### Embodied check-in script for Module 1
 
 Here is the script (thoughtfully written & led by Abby) for the
 embodied check-in during the first synchronous session:
