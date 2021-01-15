@@ -1,5 +1,5 @@
 ---
-pagetitle: "Part 1: Center the Soul"
+pagetitle: "Part 1: Mental Wellbeing in Teaching and Learning"
 ---
 
 ## Session 1: Considering Mental Wellbeing in Teaching and Learning

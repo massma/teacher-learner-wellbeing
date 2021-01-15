@@ -2,7 +2,7 @@
 pagetitle: "Considering the Whole Self in Teaching and Learning: Mental and Physical Wellbeing in the Classroom"
 ---
 
-## Session 1: Caring for the Souls of Teachers and Learners
+## Session 1: Mental Wellbeing: Caring for the Souls of Teachers and Learners
 
 `FACILITATORS' FULL NAME`
 
