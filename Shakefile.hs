@@ -30,6 +30,9 @@ import Text.Printf
 css :: FilePath
 css = "pandoc.css"
 
+source :: FilePath
+source = "source"
+
 replaceAllBS ::
   -- | String to search for
   CL.ByteString ->
@@ -373,11 +376,11 @@ rules lcConfig = do
       then return ()
       else cmd_ "cabal" ["install", "pandoc", "--installdir=" <> (takeDirectory . pandoc) lcConfig]
     inputs <-
-      fmap ("website-src" </>)
-        <$> getDirectoryFiles "website-src" ["//*.org", "//*.md", "//*.html"]
+      fmap (source </>)
+        <$> getDirectoryFiles source ["//*.org", "//*.md", "//*.html"]
     images <-
-      fmap ("website-src" </>)
-        <$> getDirectoryFiles "website-src" ["//*.png"]
+      fmap (source </>)
+        <$> getDirectoryFiles source ["//*.png"]
 
     need
       ( (fmap htmlFromSource inputs)
@@ -385,12 +388,12 @@ rules lcConfig = do
       )
 
   "public_html//*.png" %> \out -> do
-    cmd_ "cp" [(("website-src" </>) . dropDirectory1) out, out]
+    cmd_ "cp" [((source </>) . dropDirectory1) out, out]
 
   "public_html//*.html" %> \out -> do
     let possibleSources =
           fmap
-            (("website-src" </> dropDirectory1 out) -<.>)
+            ((source </> dropDirectory1 out) -<.>)
             ["html", "md", "org"]
     need [configPath']
     sources <-
@@ -402,7 +405,7 @@ rules lcConfig = do
       _ -> error ("No html, md, or org source file for: " <> out)
 
   "public_html//*.css" %> \out -> do
-    let input = "website-src" </> css
+    let input = source </> css
     need [input]
     cmd_ "cp" [input, out]
 

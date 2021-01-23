@@ -73,7 +73,7 @@ of Pandoc (e.g., `/bin/pandoc` on Linux).
 Contributing content
 ====================
 
-All content is generated from files in `/website-src`. Edit or add files
+All content is generated from files in `source`. Edit or add files
 there to update website content. The build system will automatically
 generate a new website if you execute the command `cabal run build`.
 
