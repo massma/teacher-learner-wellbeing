@@ -18,10 +18,10 @@ adapt to your purposes.
 
 ### Workshop prep
 
-You will need to put a few things together:
+We put a few things together beforehand:
 
-1. Copy our sample community agreement, slides and collaborative
-   document over to your Google drive:
+1. Our sample community agreement, slides and collaborative document
+   over to your Google drive:
    - [Collaborative Document Session
      1](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)
    - [Collaborative Document Session
@@ -31,7 +31,7 @@ You will need to put a few things together:
      1](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
 
    - [Slides Session
-     2]
+     2](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
 
 2. Set up an online discussion board of some type. Possible platforms
    include:
@@ -43,12 +43,9 @@ You will need to put a few things together:
    Keybase Teams/Slack, Signal/WhatsApp, etc.
 
 3. Install the course website
-   (<https://github.com/massma/teacher-learner-wellbeing>) to your
-   website. This is a little technical, so if you have any trouble at
-   all please reach out to Adam at akm2203@columbia.edu. If you do
-   reach out, you are doing us a favor: it will help us refine our
-   instructions to make the material more accessible to future
-   facilitators.
+   (<https://github.com/massma/teacher-learner-wellbeing>) to a public
+   (or private) website. If you have any questions about how to do
+   that please reach out to Adam at akm2203@columbia.edu.
 
 
 ### Workshop description and blurb
