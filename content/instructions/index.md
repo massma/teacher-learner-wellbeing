@@ -29,13 +29,9 @@ You will need to put a few things together:
    - [Community Agreement](https://docs.google.com/document/d/1Q1T8TvVuFR5UGB3tkQnRpxviP8BKMS9X3j1uNLw5QFA/edit?usp=sharing)
    - [Slides Session
      1](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
-     (optional: you could also use the [reveal.js slides](../presentations/module1.md) that are a
-     part of the website)
+
    - [Slides Session
-     2](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
-     (optional: you could also use the [reveal.js
-     slides](../presentations/module2.md) that are a part of the
-     website)
+     2]
 
 2. Set up an online discussion board of some type. Possible platforms
    include:
@@ -124,8 +120,7 @@ hesitate to reach out (`FACILITATORS' EMAIL`)."
 ### Synchronous Session 1
 
 Sample slides are available [in Google slide
-format](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing)
-or in [reveal.js](../presentations/module1.md); but most of session
+format](https://docs.google.com/presentation/d/1i0MdAA8_09FReCYdzoS96aGH5MNhLyhX1MCIoB4OF_k/edit?usp=sharing); but most of session
 focuses around discussion and the collaborative document (example doc
 available
 [here](https://docs.google.com/document/d/1MNI5cris19PANJOVwfO1ulTDXVTP5QNcTBtEP239o5M/edit?usp=sharing)).
@@ -258,9 +253,7 @@ Most importantly, have a great weekend!"
 
 Sample slides are available
 [in Google slide
-format](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing)
-or [reveal.hs](../presentations/module2.md)
-; but most of session focuses
+format](https://docs.google.com/presentation/d/18Lf84GyLN25YLRS9JE1kJZlDDISJZnZ_UeYsSb0g8YE/edit?usp=sharing); but most of session focuses
 around discussion and the collaborative document (example available
 [here](https://docs.google.com/document/d/10Kguon2fR8t5W1ILTJdXRxIScIaJ9GrUkJHxeQkuUeQ/edit?usp=sharing)).
 
