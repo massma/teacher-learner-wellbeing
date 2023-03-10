@@ -3,7 +3,7 @@ title: Considering the Whole Self in Teaching and Learning
 ---
 
 - If you are an instructor/facilitator interested in
-  reproducing/running the workshop yourself (strongly encouraged),
+  reproducing/running the workshop yourself,
   please view the [facilitators' notes](instructions/index.md).
 
 - An example/template [workshop website](workshop/index.md) (from the
